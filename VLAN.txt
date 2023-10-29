@@ -1,0 +1,33 @@
+Sales fa0/1-fa0/6
+Marketing fa0/7-fa0/12
+Hr fa0/13-fa0/18
+Admin fa0/19-fa0/22
+
+
+VLAN RANGE :1-4094
+1-1005 Standard Vlan
+1006-4094 Extended vlan
+
+1,1002,1003,1004,1005- Already there
+2-1001 Standard Vlan
+---------------------------------------
+create vlans:
+vlan 10
+name sales
+vlan 20
+name marketing
+vlan 30
+name HR
+vlan 40
+name admin
+
+assign port to vlan:
+
+int range fa0/1-6
+switchport access vlan 10
+int range fa0/7-12
+switchport access vlan 20
+int range fa0/13-18
+switchport access vlan 30
+int range fa0/19-22
+switchport access vlan 40

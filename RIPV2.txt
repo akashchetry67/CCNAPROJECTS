@@ -1,0 +1,33 @@
+enable
+configure terminal
+hostname R1
+interface fa0/1
+ip address 1.1.1.1 255.0.0.0
+no shutdown
+int fa0/0
+ip address 192.168.1.1 255.255.255.128
+no shutdown
+
+router rip
+version 2
+no auto-summary
+network 1.0.0.0
+network 192.168.1.0
+
+
+
+enable
+configure terminal
+hostname R2
+interface fa0/0
+ip address 1.1.1.2 255.0.0.0
+no shutdown
+int fa0/1
+ip address 192.168.1.129 255.255.255.128
+no shutdown
+
+router rip
+version 2
+no auto-summary
+network 1.0.0.0
+network 192.168.1.128

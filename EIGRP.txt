@@ -1,0 +1,107 @@
+enable
+conf t
+hostname R1
+int gig0/0
+ip add 192.168.12.1 255.255.255.0
+no shutdown
+
+int gig0/1
+ip add 192.168.13.2 255.255.255.0
+no shutdown
+
+int loopback 0
+ip add 10.1.1.1 255.0.0.0
+
+int loopback 1
+ip add 11.1.1.1 255.0.0.0
+
+int loopback 2
+ip add 12.1.1.1 255.0.0.0
+
+int loopback 3
+ip add 13.1.1.1 255.0.0.0
+
+int loopback 4
+ip add 14.1.1.1 255.0.0.0
+
+
+  <1-65535>  Autonomous system number
+router eigrp 65000
+network 10.0.0.0
+network 11.0.0.0
+network 12.0.0.0
+network 13.0.0.0
+network 14.0.0.0
+network 192.168.12.0
+network 192.168.13.0
+no auto-summary
+======================================
+enable
+conf t
+hostname R2
+int gig0/0
+ip add 192.168.12.2 255.255.255.0
+no shutdown
+
+int gig0/1
+ip add 192.168.23.1 255.255.255.0
+no shutdown
+
+int loopback 0
+ip add 20.1.1.1 255.0.0.0
+
+int loopback 1
+ip add 21.1.1.1 255.0.0.0
+
+int loopback 2
+ip add 22.1.1.1 255.0.0.0
+
+int loopback 3
+ip add 23.1.1.1 255.0.0.0
+
+router eigrp 65000
+network 20.0.0.0
+network 21.0.0.0
+network 22.0.0.0
+network 23.0.0.0
+network 24.0.0.0
+network 192.168.12.0
+network 192.168.23.0
+no auto-summary
+=========================================
+
+enable
+conf t
+hostname R3
+int gig0/0
+ip add 192.168.13.1 255.255.255.0
+no shutdown
+
+int gig0/1
+ip add 192.168.23.2 255.255.255.0
+no shutdown
+
+int loopback 0
+ip add 30.1.1.1 255.0.0.0
+
+int loopback 1
+ip add 31.1.1.1 255.0.0.0
+
+int loopback 2
+ip add 32.1.1.1 255.0.0.0
+
+int loopback 3
+ip add 33.1.1.1 255.0.0.0
+
+int loopback 4
+ip add 34.1.1.1 255.0.0.0
+
+router eigrp 65000
+network 30.0.0.0
+network 31.0.0.0
+network 32.0.0.0
+network 33.0.0.0
+network 34.0.0.0
+network 192.168.13.0
+network 192.168.23.0
+no auto-summary

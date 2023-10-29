@@ -1,0 +1,69 @@
+SW1
+sales - fa0/1-2
+marketing -fa0/3-4
+
+SW2
+Account - fa0/1-2
+marketing -fa0/3-4
+
+SW3
+Sales - fa0/1-2
+account -fa0/3-4
+
+
+--------------------------------
+Create Vlan:-----
+ sw1,sw2,sw3
+conf terminal
+vlan 21
+name sales
+vlan 31
+name marketing
+vlan 41 
+name accounts
+
+sw1
+enable 
+conf terminal
+interface range fa0/1 - 2
+switchport access vlan 21
+
+interface range fa0/3 - 4
+switchport access vlan 31
+
+int gi0/1
+switchport mode trunk
+
+sw2
+enable 
+conf terminal
+interface range fa0/1 - 2
+switchport access vlan 41
+
+interface range fa0/3 - 4
+switchport access vlan 31
+
+int range gi0/1 - 2
+switchport mode trunk
+
+sw3
+enable 
+conf terminal
+interface range fa0/1 - 2
+switchport access vlan 21
+
+interface range fa0/3 - 4
+switchport access vlan 41
+
+int gi0/1
+switchport mode trunk
+
+-----------------------------------
+subnet:
+vlan 21
+192.168.21.0/24
+vlan 31
+192.168.31.0/24
+vlan 41
+192.168.41.0/24
+

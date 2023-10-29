@@ -1,0 +1,100 @@
+sw1
+enable
+conf t
+vlan 10
+name sales5
+vlan 20
+name marketing
+vlan 30
+name account
+
+
+int fa0/3
+switchport access vlan 10
+
+int fa0/2
+switchport access vlan 30
+int fa0/1
+switchport mode trunk
+
+sw2
+enable
+conf t
+vlan 10
+name sales5
+vlan 20
+name marketing
+vlan 30
+name account
+
+
+int fa0/2
+switchport access vlan 20
+
+int fa0/3
+switchport access vlan 10
+int fa0/1
+switchport mode trunk
+
+sw3
+conf t
+vlan 10
+name sales5
+vlan 20
+name marketing
+vlan 30
+name account
+
+
+int fa0/2
+switchport access vlan 30
+
+int fa0/3
+switchport access vlan 20
+int fa0/1
+switchport mode trunk
+
+
+===================================================================
+
+MultiLayer Switch Config
+
+conf t
+hostname dsw1
+ip routing
+vlan 10
+name sales5
+vlan 20
+name marketing
+vlan 30
+name account
+
+int range fa0/1 - 3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+interface vlan 10 
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+
+interface vlan 20
+ip address 192.168.20.1 255.255.255.0
+no shutdown
+
+interface vlan 30
+ip address 192.168.30.1 255.255.255.0
+no shutdown
+
+ip dhcp pool ten
+default-router 192.168.10.1
+network 192.168.10.0 255.255.255.0
+
+ip dhcp pool twenty
+default-router 192.168.20.1
+network 192.168.20.0 255.255.255.0
+
+ip dhcp pool thirty
+default-router 192.168.30.1
+network 192.168.30.0 255.255.255.0
+
+
