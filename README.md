@@ -1,0 +1,2 @@
+# CCNAPROJECTS
+This GitHub repository is a comprehensive CCNA (Cisco Certified Network Associate) practical guide, covering essential topics like DHCP, static routing, default routing, VLANs, Telnet, Inter-VLAN routing, VLANs on trunk interfaces, OSPF, EIGRP, RIP, SVIs, and much more. Use this resource to enhance your networking skills and prepare for CCNA certification. Dive into hands-on practice with real-world scenarios and examples. Your path to becoming a networking pro starts here! 🚀🔌🌐
